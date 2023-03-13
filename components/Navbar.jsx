@@ -22,6 +22,7 @@ const Navbar = () => {
         <Link href="/">
           <div className="hidden md:flex" onClick={() => {}}>
             <Image src={images.logo02} objectFit="contain" width={32} height={32} alt="logo" />
+            //push
           </div>
         </Link>
       </div>
