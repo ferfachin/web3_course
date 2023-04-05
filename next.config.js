@@ -1,6 +1,12 @@
-/** @type {import('next').NextConfig} */
+const dedicatedEndPoint = '...';
 const nextConfig = {
   reactStrictMode: true,
-}
-
-module.exports = nextConfig
+  swcMinify: true,
+  images: {
+    domains: [dedicatedEndPoint, 'rdetest.infura-ipfs.io'],
+  },
+  env: {
+    BASE_URL: process.env.BASE_URL,
+  },
+};
+module.exports = nextConfig;
