@@ -81,16 +81,17 @@ export const NFTProvider = ({ children }) => {
   const createNFT = async (formInput, fileUrl, router) => {
     const { name, description, price } = formInput;
 
-    if (!name || !description || !price || !fileUrl) return;
+    if (!name || !description || !price || !fileUrl) return; 
 
     const data = JSON.stringify({ name, description, image: fileUrl });
 
     try {
       const added = await client.add(data);
-
       const url = `https://ipfs.infura.io/ipfs/${added.path}`;
 
-      await createSale(url, price);
+      await createSale(url, price).catch((error) => {
+        console.error('Error creating sale:', error);
+      });
 
       router.push('/');
     } catch (error) {

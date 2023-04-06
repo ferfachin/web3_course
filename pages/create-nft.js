@@ -8,11 +8,11 @@ import { NFTContext } from '../context/NFTContext';
 import { Button, Input } from '../components';
 import images from '../assets';
 
-const createNFT = () => {
+const CreateNFT = () => {
   const [fileUrl, setFileUrl] = useState(null);
   const [formInput, setFormInput] = useState({ name: '', description: '', price: '' });
   const { theme } = useTheme();
-  const { uploadToIPFS, createNFTs } = useContext(NFTContext);
+  const { uploadToIPFS, createNFT } = useContext(NFTContext); // Rename createNFTs to createNFT
   const router = useRouter();
 
   const onDrop = useCallback(async (acceptedFile) => {
@@ -104,4 +104,4 @@ const createNFT = () => {
     </div>
   );
 };
-export default createNFT;
+export default CreateNFT;
